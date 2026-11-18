@@ -64,6 +64,20 @@ Both programs are menu-driven. On Windows you can also open the `.cbp` file in *
 
 ---
 
+<!-- syllabus:start -->
+## 📘 Syllabus · official UAH teaching guide
+
+> **Estructuras de Datos (780009)** · 6 ECTS · 2nd year · 1st semester · contents from the 2025-26 teaching guide · [official subject page](https://www.uah.es/es/estudios/estudios-oficiales/grados/asignatura/Estructuras-de-Datos-780009/)
+
+| Unit | Hours | Topics |
+|---|---|---|
+| Foundations | 8 h | Abstract data types and their specification |
+| Linear data structures | 20 h | Arrays and sorting methods · Stacks, queues and lists · Implementations and applications |
+| Non-linear data structures | 28 h | Binary trees, AVL trees, heaps, general trees · Graphs · Implementations and applications |
+<!-- syllabus:end -->
+
+---
+
 <div align="center">
 
 Miguel Hernández López · [GitHub](https://github.com/MiguelHernandezz) · [LinkedIn](https://www.linkedin.com/in/miguel-hernandez-lopez/)
