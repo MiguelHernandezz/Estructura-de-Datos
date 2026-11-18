@@ -1,0 +1,34 @@
+name: build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    env:
+      # Catch invalid memory accesses; leak reports are not treated as failures
+      ASAN_OPTIONS: detect_leaks=0:abort_on_error=1
+      CXXFLAGS: -std=c++17 -Wall -g -fsanitize=address,undefined -fno-omit-frame-pointer
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build PL1 (queues and stacks)
+        working-directory: PL1-simulador-editorial
+        run: g++ $CXXFLAGS -Iinclude main.cpp src/*.cpp -o editorial
+
+      - name: Run PL1
+        working-directory: PL1-simulador-editorial
+        # generate orders, run 3 simulation steps, show state, open box 0, invalid input, exit
+        run: printf '1\n2\n2\n2\n3\n4\n0\nx\n0\n' | timeout 30 ./editorial
+
+      - name: Build PL2 (binary search tree + lists)
+        working-directory: PL2-pedidos-arbol-abb
+        run: g++ $CXXFLAGS -Iinclude main.cpp src/*.cpp -o pedidos
+
+      - name: Run PL2
+        working-directory: PL2-pedidos-arbol-abb
+        # stats, continue distribution, in-order traversal, invalid input, exit
+        run: printf '7\n8\n9\nx\n0\n' | timeout 30 ./pedidos

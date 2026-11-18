@@ -1,0 +1,11 @@
+# Build outputs
+bin/
+obj/
+*.o
+*.exe
+PL1-simulador-editorial/editorial
+PL2-pedidos-arbol-abb/pedidos
+
+# Code::Blocks per-user files
+*.depend
+*.layout
